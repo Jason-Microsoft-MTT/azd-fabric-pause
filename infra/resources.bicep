@@ -234,27 +234,13 @@ resource EventHubNameSpace 'Microsoft.EventHub/namespaces@2024-05-01-preview' = 
     }
     minimumTlsVersion: '1.2'
     publicNetworkAccess: 'Enabled'
-    disableLocalAuth: false
+    disableLocalAuth: true
     zoneRedundant: true
     isAutoInflateEnabled: false
     maximumThroughputUnits: 0
     kafkaEnabled: true
   }
 }
-
-resource EventHubNameSpaceRootManageSharedAccessKey 'Microsoft.EventHub/namespaces/authorizationrules@2024-05-01-preview' = {
-  parent: EventHubNameSpace
-  name: 'RootManageSharedAccessKey'
-  properties: {
-    rights: [
-      'Listen'
-      'Manage'
-      'Send'
-    ]
-  }
-}
-
-
 
 resource EventHub 'Microsoft.EventHub/namespaces/eventhubs@2024-05-01-preview' = {
   parent: EventHubNameSpace
@@ -293,17 +279,23 @@ resource apiConnection 'Microsoft.Web/connections@2016-06-01' = {
       id: subscriptionResourceId('Microsoft.Web/locations/managedApis', location, 'eventhubs')
     }
     displayName: 'logicapp_pull_iss'
-    parameterValues: {
-      connectionString: listkeys(resourceId('Microsoft.EventHub/namespaces/authorizationrules', EventHubNameSpace.name, 'RootManageSharedAccessKey'), '2024-05-01-preview').primaryConnectionString
+    parameterValueSet: {
+      name: 'managedIdentityAuth'
+      values: {
+        namespaceEndpoint: {
+          value: 'sb://${EventHubNameSpace.name}.servicebus.windows.net'
+        }
+      }
     }
-  
   }
-  
 }
 
 resource logicapp_pull_iss 'Microsoft.Logic/workflows@2017-07-01' = {
   name: 'logicapp_pull_iss'
   location: location
+  identity: {
+    type: 'SystemAssigned'
+  }
   properties: {
     state: 'Enabled'
     definition: {
@@ -374,6 +366,11 @@ resource logicapp_pull_iss 'Microsoft.Logic/workflows@2017-07-01' = {
             id: subscriptionResourceId('Microsoft.Web/locations/managedApis', location, 'eventhubs')
             connectionId: apiConnection.id 
             connectionName: 'eventhubs'
+            connectionProperties: {
+              authentication: {
+                type: 'ManagedServiceIdentity'
+              }
+            }
           }
         }
        }
@@ -382,13 +379,24 @@ resource logicapp_pull_iss 'Microsoft.Logic/workflows@2017-07-01' = {
 }
   
 
-// add a new resource to assign Contributor permissions to the Resource Group, which allows Logic App to access the Fabric resource
-resource LogicAppRBAC 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+// Assign Contributor permissions to the Resource Group, which allows Logic App to access the Fabric resource
+resource LogicAppFabricRBAC 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
   name: guid(concat(resourceGroup().id), logicapp_pause_fabric.id, 'b24988ac-6180-42a0-ab88-20f7382dd24c')
   properties: {
-    roleDefinitionId: resourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c') // contributor
+    roleDefinitionId: resourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c') // Contributor
     principalId: reference(logicapp_pause_fabric.id, '2017-07-01', 'full').identity.principalId
     scope: resourceGroup().id
+    principalType: 'ServicePrincipal'
+  }
+}
+
+// Assign Azure Event Hubs Data Sender role to logicapp_pull_iss for EventHub namespace access
+resource LogicAppEventHubRBAC 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+  name: guid(EventHubNameSpace.id, logicapp_pull_iss.id, '2b629674-e913-4c01-ae53-ef4638d8f975')
+  scope: EventHubNameSpace
+  properties: {
+    roleDefinitionId: resourceId('Microsoft.Authorization/roleDefinitions', '2b629674-e913-4c01-ae53-ef4638d8f975') // Azure Event Hubs Data Sender
+    principalId: reference(logicapp_pull_iss.id, '2017-07-01', 'full').identity.principalId
     principalType: 'ServicePrincipal'
   }
 }
