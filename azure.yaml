@@ -2,8 +2,8 @@
 
 # update the name and metadata.template to match your project
 
-name: azd-tdd-fabricpause
+name: tdd-fabricpause
 metadata:
-  template: azd-tdd-fabricpause@1.0.0
+  template: tdd-fabricpause@1.0.0
 infra:
    provider: "bicep"
