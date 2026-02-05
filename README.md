@@ -1,4 +1,4 @@
-# Track data from the International Space Station using LogicApps and EventHubs
+# Fabric Capacity Deployment (F8) and Logic App to Pause Every 4 Hours
 
 This template could be used as a starting point for creating your own AZD-compatible templates, which you will contribute to [Trainer-Demo-Deploy](https://aka.ms/trainer-demo-deploy). 
 
