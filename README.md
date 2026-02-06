@@ -13,15 +13,15 @@ This template could be used as a starting point for creating your own AZD-compat
 
 1. Create a new folder on your machine.
 ```
-mkdir tdd-azd-starter
+mkdir tdd-fabric-pause
 ```
 2. Next, navigate to the new folder.
 ```
-cd tdd-azd-starter
+cd tdd-fabric-pause
 ```
 3. Next, run `azd init` to initialize the deployment.
 ```
-azd init -t petender/tdd-azd-starter
+azd init -t Jason-Microsoft-MTT/tdd-fabric-pause
 ```
 4. Copy the starter template into its own directory and modify the template.
 ```
