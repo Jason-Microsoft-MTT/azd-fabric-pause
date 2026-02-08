@@ -41,7 +41,6 @@ This capacity size should allow for most sample data scenarios in any Fabric wor
 
 ![Fabric Pause Resume Capacity](fabric_pause_resume_capacity.png)
 
-
 #### Adding Your Fabric Capacity to a Workspace
 
 - Create a Fabric Workspace
@@ -64,7 +63,7 @@ This capacity size should allow for most sample data scenarios in any Fabric wor
 
 #### Pause Capacity and Reset Logic App Timer
 
-- If you want to run the logicapp trigger and reset the 4 hour timer, navigate to the logiapp resource and select `Run`
+- If you want to run the logicapp trigger and reset the 4 hour timer, navigate to the logicapp resource and select `Run`
 
 ![Fabric Pause Reset Logic App](fabric_pause_reset_logicapp.png)
 
