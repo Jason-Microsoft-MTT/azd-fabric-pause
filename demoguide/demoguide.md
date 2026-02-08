@@ -1,24 +1,3 @@
-[comment]: <> (please keep all comment items at the top of the markdown file)
-[comment]: <> (please do not change the ***, as well as <div> placeholders for Note and Tip layout)
-[comment]: <> (please keep the ### 1. and 2. titles as is for consistency across all demoguides)
-[comment]: <> (section 1 provides a bullet list of resources + clarifying screenshots of the key resources details)
-[comment]: <> (section 2 provides summarized step-by-step instructions on what to demo)
-
-[comment]: <> (PASTEABLE IMAGE REFERENCES - Copy and paste these into your markdown as needed:)
-[comment]: <> (Relative path references - use these if viewing locally or in same folder:)
-[comment]: <> (![Fabric Pause Resources](fabric_pause_resources.png))
-[comment]: <> (![Fabric Pause Change Pause Frequency](fabric_pause_change_pause_frequency.png))
-[comment]: <> (![Fabric Pause Change Size](fabric_pause_change_size.png))
-[comment]: <> (![Fabric Pause Reset Logic App](fabric_pause_reset_logicapp.png))
-[comment]: <> (![Fabric Pause Resume Capacity](fabric_pause_resume_capacity.png))
-[comment]: <> ()
-[comment]: <> (GitHub URL references - use these for absolute GitHub links:)
-[comment]: <> (![Fabric Pause Resources](https://raw.githubusercontent.com/Jason-Microsoft-MTT/azd-fabric-pause/main/demoguide/fabric_pause_resources.png))
-[comment]: <> (![Fabric Pause Change Pause Frequency](https://raw.githubusercontent.com/Jason-Microsoft-MTT/azd-fabric-pause/main/demoguide/fabric_pause_change_pause_frequency.png))
-[comment]: <> (![Fabric Pause Change Size](https://raw.githubusercontent.com/Jason-Microsoft-MTT/azd-fabric-pause/main/demoguide/fabric_pause_change_size.png))
-[comment]: <> (![Fabric Pause Reset Logic App](https://raw.githubusercontent.com/Jason-Microsoft-MTT/azd-fabric-pause/main/demoguide/fabric_pause_reset_logicapp.png))
-[comment]: <> (![Fabric Pause Resume Capacity](https://raw.githubusercontent.com/Jason-Microsoft-MTT/azd-fabric-pause/main/demoguide/fabric_pause_resume_capacity.png))
-
 [comment]: <> (this is the section for the Note: item; please do not make any changes here)
 ***
 ### Microsoft Fabric Capacity with Auto-Pause Logic App
@@ -45,8 +24,7 @@ Provide a bullet list of the Resource Group and all deployed resources with name
 * Fabric%uniquestring% - Microsoft Fabric Capacity (F8 SKU)
 * LogicApp-Pause-Fabric - Azure LogicApp to pause the Fabric Capacity (to save cost; runs every 4 hours UTC)
 
-<img src="[https://github.com/Jason-Microsoft-MTT/azd-fabric-pause/main/demoguide/fabric_pause_resources.png](https://github.com/Jason-Microsoft-MTT/azd-fabric-pause/blob/fd0ec9f53b4f4d4677d3a8a9353f00b24112df21/demoguide/fabric_pause_change_pause_frequency.png)" alt="ISS Fabric Scenario - Resource Group" style="width:70%;">
-<br></br>
+![Fabric Pause Resources](fabric_pause_resources.png)
 
 ### 2. What can I demo from this scenario after deployment
 
@@ -60,6 +38,8 @@ This capacity size should allow for most sample data scenarios in any Fabric wor
 
 - Fabric Capacity (F8 SKU)
 - Logic App - Fabric Capacity Pause - pauses capacity every 4 hours (UTC). This may not be running on creation - go into Overview of resource and select `Run` to initialize
+
+![Fabric Pause Resume Capacity](fabric_pause_resume_capacity.png)
 
 
 #### Adding Your Fabric Capacity to a Workspace
@@ -80,6 +60,23 @@ This capacity size should allow for most sample data scenarios in any Fabric wor
 
 - If you find costs are too high or processing is running slower than expected based on Trial F64, you can always navigate back to the Azure resource and resize at any SKU at any time.
 
+![Fabric Pause Change Size](fabric_pause_change_size.png)
+
+#### Pause Capacity and Reset Logic App Timer
+
+- If you want to run the logicapp trigger and reset the 4 hour timer, navigate to the logiapp resource and select `Run`
+
+![Fabric Pause Reset Logic App](fabric_pause_reset_logicapp.png)
+
+#### Change Pause Frequency
+
+- If you want to change how often the logicapp pauses:
+1. Navigate to logicapp and select `Logic App Designer`
+2. Select the `Every 4 Hours` Step
+3. Change the Frequency settings
+
+![Fabric Pause Change Pause Frequency](fabric_pause_change_pause_frequency.png)
+
 ---
 
 ## Appendix: Image References
@@ -95,22 +92,5 @@ Below are pasteable markdown references for all images in this demoguide folder:
 ![Fabric Pause Resume Capacity](fabric_pause_resume_capacity.png)
 ```
 
-### GitHub Raw URL References (for absolute links)
-```markdown
-![Fabric Pause Resources](https://raw.githubusercontent.com/Jason-Microsoft-MTT/azd-fabric-pause/main/demoguide/fabric_pause_resources.png)
-![Fabric Pause Change Pause Frequency](https://raw.githubusercontent.com/Jason-Microsoft-MTT/azd-fabric-pause/main/demoguide/fabric_pause_change_pause_frequency.png)
-![Fabric Pause Change Size](https://raw.githubusercontent.com/Jason-Microsoft-MTT/azd-fabric-pause/main/demoguide/fabric_pause_change_size.png)
-![Fabric Pause Reset Logic App](https://raw.githubusercontent.com/Jason-Microsoft-MTT/azd-fabric-pause/main/demoguide/fabric_pause_reset_logicapp.png)
-![Fabric Pause Resume Capacity](https://raw.githubusercontent.com/Jason-Microsoft-MTT/azd-fabric-pause/main/demoguide/fabric_pause_resume_capacity.png)
-```
-
-### HTML Image Tags with Styling (like existing examples in this file)
-```html
-<img src="fabric_pause_resources.png" alt="Fabric Pause Resources" style="width:70%;">
-<img src="fabric_pause_change_pause_frequency.png" alt="Fabric Pause Change Pause Frequency" style="width:70%;">
-<img src="fabric_pause_change_size.png" alt="Fabric Pause Change Size" style="width:70%;">
-<img src="fabric_pause_reset_logicapp.png" alt="Fabric Pause Reset Logic App" style="width:70%;">
-<img src="fabric_pause_resume_capacity.png" alt="Fabric Pause Resume Capacity" style="width:70%;">
-```
 
 
