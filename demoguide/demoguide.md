@@ -37,7 +37,7 @@ This capacity size should allow for most sample data scenarios in any Fabric wor
 #### Validate Deployed Resources
 
 - Fabric Capacity (F8 SKU)
-- Logic App - Fabric Capacity Pause - pauses capacity every 4 hours (UTC). This may not be running on creation - go into Overview of resource and select `Run` to initialize
+- Logic App - Fabric Capacity Pause - pauses capacity every 4 hours (UTC). This may not be running on creation - go into Overview of resource and select `Resume` to initialize
 
 ![Fabric Pause Resume Capacity](fabric_pause_resume_capacity.png)
 
@@ -76,21 +76,6 @@ This capacity size should allow for most sample data scenarios in any Fabric wor
 3. Change the Frequency settings
 
 ![Fabric Pause Change Pause Frequency](fabric_pause_change_pause_frequency.png)
-
----
-
-## Appendix: Image References
-
-Below are pasteable markdown references for all images in this demoguide folder:
-
-### Relative Path References (for same folder)
-```markdown
-![Fabric Pause Resources](fabric_pause_resources.png)
-![Fabric Pause Change Pause Frequency](fabric_pause_change_pause_frequency.png)
-![Fabric Pause Change Size](fabric_pause_change_size.png)
-![Fabric Pause Reset Logic App](fabric_pause_reset_logicapp.png)
-![Fabric Pause Resume Capacity](fabric_pause_resume_capacity.png)
-```
 
 
 
