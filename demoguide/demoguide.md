@@ -55,12 +55,12 @@ This capacity size should allow for most sample data scenarios in any Fabric wor
 
   - Navigate to https://app.powerbi.com/
 
-<img src="https://raw.githubusercontent.com/petender/issdata/main/demoguide/Fabric_Dashboard.png" alt="ISS Fabric Scenario - Dashboard" style="width:70%;">
+<img src="https://raw.githubusercontent.com/petender/issdata/main/demoguide/Fabric_Dashboard.png" alt="Fabric Dashboard" style="width:70%;">
 <br></br>
 
 - Fill in the fields (Domain not needed) - ensure that under Advanced section, that created F8 Fabric Capacity is selected
 
-<img src="https://raw.githubusercontent.com/petender/issdata/main/demoguide/Create_Workspace.png" alt="ISS Create Fabric Workspace" style="width:70%;">
+<img src="https://raw.githubusercontent.com/petender/issdata/main/demoguide/Create_Workspace.png" alt="Create Fabric Workspace" style="width:70%;">
 <br></br>
 
 #### Resizing Capacity
