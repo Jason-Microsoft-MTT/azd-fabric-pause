@@ -43,8 +43,11 @@ This capacity size should allow for most sample data scenarios in any Fabric wor
 - Fabric Capacity (F8 SKU)
 - Logic App - Fabric Capacity Pause - pauses capacity every 4 hours (UTC). This may not be running on creation - go into Overview of resource and select `Resume` to initialize
 
-<img src="./fabric_pause_resume_capacity.png" alt="Fabric Pause Resume Capacity" style="width:70%;">
-<br></br>
+<img
+  src="https://raw.githubusercontent.com/Jason-Microsoft-MTT/azd-fabric-pause/main/demoguide/fabric_pause_resume_capacity.png"
+  alt="Fabric Pause Resume Capacity"
+  style="width:70%;" />
+``
 
 #### Adding Your Fabric Capacity to a Workspace
 
