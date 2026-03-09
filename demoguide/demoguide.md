@@ -28,7 +28,7 @@ Provide a bullet list of the Resource Group and all deployed resources with name
   src="/azd-fabric-pause/fabric-pause-resources.png"
   alt="Fabric Pause Resources"
   style="width:70%"
->
+/>
 <br><br>
 
 
