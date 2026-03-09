@@ -24,13 +24,7 @@ Provide a bullet list of the Resource Group and all deployed resources with name
 * Fabric%uniquestring% - Microsoft Fabric Capacity (F8 SKU)
 * LogicApp-Pause-Fabric - Azure LogicApp to pause the Fabric Capacity (to save cost; runs every 4 hours UTC)
 
-<img
-  src="/azd-fabric-pause/fabric-pause-resources.png"
-  alt="Fabric Pause Resources"
-  style="width:70%"
-/>
-<br><br>
-
+![Fabric Pause Resources](/azd-fabric-pause/fabric-pause-resources.png)
 
 ### 2. What can I demo from this scenario after deployment
 
