@@ -24,10 +24,11 @@ Provide a bullet list of the Resource Group and all deployed resources with name
 * Fabric%uniquestring% - Microsoft Fabric Capacity (F8 SKU)
 * LogicApp-Pause-Fabric - Azure LogicApp to pause the Fabric Capacity (to save cost; runs every 4 hours UTC)
 
-<img src="/azd-fabric-pause/azd-fabric-pause-resources.png"
-     alt="Fabric Pause Resources"
-     style="width:70%;" />
-<br><br>
+<img
+  src="https://raw.githubusercontent.com/Jason-Microsoft-MTT/azd-fabric-pause/main/demoguide/fabric_pause_resources.png"
+  alt="Fabric Pause Resources"
+  style="width:70%;" />
+``
 
 ### 2. What can I demo from this scenario after deployment
 
@@ -63,15 +64,21 @@ This capacity size should allow for most sample data scenarios in any Fabric wor
 
 - If you find costs are too high or processing is running slower than expected based on Trial F64, you can always navigate back to the Azure resource and resize at any SKU at any time.
 
-<img src="./fabric_pause_change_size.png" alt="Fabric Pause Change Size" style="width:70%;">
-<br></br>
+<img
+  src="https://raw.githubusercontent.com/Jason-Microsoft-MTT/azd-fabric-pause/main/demoguide/fabric_pause_change_size.png"
+  alt="Fabric Pause Change Size"
+  style="width:70%;" />
+``
 
 #### Pause Capacity and Reset Logic App Timer
 
 - If you want to run the logicapp trigger and reset the 4 hour timer, navigate to the logicapp resource and select `Run`
 
-<img src="./fabric_pause_reset_logicapp.png" alt="Fabric Pause Reset Logic App" style="width:70%;">
-<br></br>
+<img
+  src="https://raw.githubusercontent.com/Jason-Microsoft-MTT/azd-fabric-pause/main/demoguide/fabric_pause_reset_logicapp.png"
+  alt="Fabric Pause Reset Logic App"
+  style="width:70%;" />
+``
 
 #### Change Pause Frequency
 
@@ -80,8 +87,11 @@ This capacity size should allow for most sample data scenarios in any Fabric wor
 2. Select the `Every 4 Hours` Step
 3. Change the Frequency settings
 
-<img src="./fabric_pause_change_pause_frequency.png" alt="Fabric Pause Change Pause Frequency" style="width:70%;">
-<br></br>
+<img
+  src="https://raw.githubusercontent.com/Jason-Microsoft-MTT/azd-fabric-pause/main/demoguide/fabric_pause_change_pause_frequency.png"
+  alt="Fabric Pause Change Pause Frequency"
+  style="width:70%;" />
+``
 
 
 
